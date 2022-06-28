@@ -1,0 +1,24 @@
+.Card {
+  margin: 15px;
+  width: 265px;
+  height: 265px;
+  display: flex;
+  opacity: .7;
+}
+
+.Card:hover{
+ transition: 0.8s;
+  opacity: 1;
+}
+
+.Area {
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.Img {
+  margin: 5px;
+  max-width: 215px;
+  max-height: 160px;
+}

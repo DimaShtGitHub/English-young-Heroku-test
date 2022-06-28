@@ -1,0 +1,35 @@
+
+.Card {
+  margin: 15px;
+  width: 230px;
+  height: 230px;
+  display: flex;
+  opacity: .7;
+  z-index: 2;
+}
+.Card:hover{
+  transition: 0.8s;
+  opacity: 1;
+}
+.Area {
+  display: flex;
+  flex-direction: column ;
+  justify-content: space-between ;
+}
+.Img {
+  margin-bottom: -16px;
+  max-height: 113px;
+  margin-top: 14px;
+}
+
+.Container {
+  display: flex !important;
+  justify-content: space-around !important;
+  flex-wrap: wrap !important;
+}
+
+.Volume {
+  position: absolute;
+  margin: 5px;
+  margin-left: 200px;
+}

@@ -1,0 +1,22 @@
+.iconsHeder{
+  width: 40px;
+}
+
+.iconsHeder:hover {
+  -webkit-transform: scale(1.2);
+  -ms-transform: scale(1.2);
+  transform: scale(1.2);
+}
+.mainImg:hover {
+  -webkit-transform: rotateZ(20deg);
+  -ms-transform: rotateZ(20deg);
+  transform: rotateZ(20deg);  
+}
+
+.mainImg {
+  width: 127px;
+}
+
+.Menu {
+  margin-bottom: -4px !important;
+}
