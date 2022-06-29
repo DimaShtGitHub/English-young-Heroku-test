@@ -82,14 +82,16 @@ export default function OneWords() {
       {words[count] ? 
       (<>
       <div className={styles.Home}>
+      <h4 className={styles.Stat1}>Задание {count+1} из {words.length}</h4>
       <img className={styles.Img} src={words[count]['Word.img']} alt="" />
       <div className={styles.Word}>{words[count].text.split('').map(el => el.toUpperCase()).join('')}</div>
-      {checkAnswer ? <div>попробуй еще разок</div> : null}
        <ButtonGroup className={styles.Btn} variant="outlined" size="small" aria-label="outlined button group">
         {words[count]?.option.split('').map((el, i) => {
-        return <Button onClick={pushHandler} value={el} key={i}>{el}</Button>
+          return <Button onClick={pushHandler} value={el} key={i}>{el}</Button>
         })}
-      </ButtonGroup></div>
+      </ButtonGroup>
+        {checkAnswer ? <div>попробуй еще разок</div> : null}
+        </div>
       </>)
        : (count ? (<>
         <div className={styles.Home}>
