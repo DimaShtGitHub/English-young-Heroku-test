@@ -105,7 +105,7 @@ setTimeout(()=> {
 
 if (count !== 0 && count === allword.length && user.name && statusStat === 0) {
   setStatusStat(1)
-  axios.post('http://localhost:3001/statistic', {stat}, {withCredentials: true})
+  axios.post(`/statistic`, {stat}, {withCredentials: true})
 }
 
 
