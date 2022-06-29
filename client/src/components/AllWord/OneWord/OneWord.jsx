@@ -3,7 +3,6 @@ import { useSelector } from 'react-redux';
 
 import TableCell from '@mui/material/TableCell';
 import TableRow from '@mui/material/TableRow';
-import Avatar from '@mui/material/Avatar';
 import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 export default function OneWord({ word }) {

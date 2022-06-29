@@ -23,6 +23,8 @@ export default function TestGame() {
    const [res, setRes] = useState({arrtrue: [], arrfalse:[]})
    const [ansew, setAnsew] = useState(0)
    const [statusStat, setStatusStat] = useState(0)
+   const [arRandom, setArRandom] = useState([])
+ 
 
   useEffect(() => {
     if(id === 'random'){
@@ -163,3 +165,4 @@ return (
 )
 }
 
+}
