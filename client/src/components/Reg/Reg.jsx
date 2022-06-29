@@ -17,7 +17,7 @@ export default function Reg() {
 
   const regHandler = (event) => {
     event.preventDefault();
-    axios.post('/auth/reg', inputs, {
+    axios.post('http://localhost:3001/auth/reg', inputs, {
       withCredentials: true,
     })
     .then((res) => {

@@ -16,7 +16,7 @@ export default function Cards() {
 
 
   useEffect(() => {
-    axios.get('/topic/card')
+    axios.get('http://localhost:3001/topic/card')
       .then((data) => setArrCard(data.data))
   }, [])
 

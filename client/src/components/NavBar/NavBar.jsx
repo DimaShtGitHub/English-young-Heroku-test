@@ -28,7 +28,7 @@ import reg_img from '../../assets/headerIcons/patient.png'
 import lk_img from '../../assets/headerIcons/lk.png'
 import sound_img from '../../assets/headerIcons/song.png'
 import person_img from '../../assets/headerIcons/free-icon-user-7182164.png'
-
+ 
 
 
 export default function ButtonAppBar() {
@@ -54,7 +54,7 @@ export default function ButtonAppBar() {
 
   const logHandler = (event) => {
     if (user.name) {
-      axios.get('/auth/logout', {
+      axios.get('http://localhost:3001/auth/logout', {
         withCredentials: true,
       })
         .then((response) => {
@@ -97,7 +97,7 @@ export default function ButtonAppBar() {
             {(popupState) => (
               <React.Fragment >
                 <Button  variant="contained"  {...bindTrigger(popupState)} sx={{backgroundColor: '#27e3c2', border: '2px solid black' }}>
-                <h5>Играть</h5>
+                <h5 className={style.gameSelect}>Играть</h5>
                 <img className={style.iconsHeder} src={game_img}  alt="game img" />               
                 </Button>
                 <Menu {...bindMenu(popupState)}>

@@ -16,7 +16,7 @@ export default function WordsPage() {
   const [arrCard, setArrCard] = useState([]);
 
   useEffect(() => {
-    axios.get('/topic/words')
+    axios.get('http://localhost:3001/topic/words')
       .then((data) => setArrCard(data.data))
   }, [])
 

@@ -22,7 +22,7 @@ export default function AllWord() {
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    axios.get('/word/all')
+    axios.get('http://localhost:3001/word/all')
       .then((data) => setAllWord(data.data))
   }, [])
 
