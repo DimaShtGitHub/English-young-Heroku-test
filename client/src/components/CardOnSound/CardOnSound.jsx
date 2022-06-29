@@ -15,28 +15,35 @@ export default function Cards() {
 
 
   useEffect(() => {
-    axios.get('/topic/card')
+    axios.get(`/topic/card`)
       .then((data) => setArrCard(data.data))
   }, [])
 
   return (
     <div className={styles.Home}>
-      <Container className={styles.Container}>
-        {arrCard?.map(el => <OneCard topic={el} key={el.id} />)}
+{arrCard.length > 0 ? (
+  <div>
+  <Container className={styles.Container}>
+    {arrCard?.map(el => <OneCard topic={el} key={el.id} />)}
 
-        <Card className={styles.Card} onClick={() => navigate(`/sound/random`, { replace: true })}>
-          <CardActionArea className={styles.Area}>
-            <img className={styles.Img}
-              src='/img/Tree.png'
-              alt='загрузка'
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Random
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      </Container> </div>
+    <Card className={styles.Card} onClick={() => navigate(`/sound/random`, { replace: true })}>
+      <CardActionArea className={styles.Area}>
+        <img className={styles.Img}
+          src='/img/Tree.png'
+          alt='загрузка'
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Random
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+    </Card>
+  </Container>
+  </div>
+):(<div className="spinner-grow text-danger" role="status">
+<span className="visually-hidden">Загрузка...</span>
+</div>)}
+      </div>
   )
 }

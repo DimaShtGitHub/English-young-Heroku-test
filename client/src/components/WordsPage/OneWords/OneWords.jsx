@@ -118,8 +118,8 @@ export default function OneWords() {
               {user.name ? (null):(
             <>
             <h5> 
-             <span color='green' onClick={() => {navigate("/auth/reg", { replace: true })}}>Зарегестрируйся </span>  или 
-             <span onClick={() => {navigate("/auth/login", { replace: true })}}> войди</span> , чтобы сохранить результаты игры</h5>
+             <span style={{color: 'green'}} onClick={() => {navigate("/auth/reg", { replace: true })}}>Зарегестрируйся </span>  или 
+             <span style={{color: 'green'}} onClick={() => {navigate("/auth/login", { replace: true })}}> войди</span> , чтобы сохранить результаты игры</h5>
             </>
           )}
         </div>
