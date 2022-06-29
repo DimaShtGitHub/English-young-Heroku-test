@@ -5,7 +5,6 @@ import Container from '@mui/material/Container';
 import { useNavigate } from 'react-router-dom'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import styles from './WordsPage.module.css'
@@ -16,7 +15,7 @@ export default function WordsPage() {
   const [arrCard, setArrCard] = useState([]);
 
   useEffect(() => {
-    axios.get('/topic/words')
+    axios.get(`/topic/words`)
       .then((data) => setArrCard(data.data))
   }, [])
 
