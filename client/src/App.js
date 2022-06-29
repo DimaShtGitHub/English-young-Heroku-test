@@ -14,10 +14,11 @@ import OneWords from './components/WordsPage/OneWords/OneWords'
 import AllWord from './components/AllWord/AllWord';
 import Lk from './components/Lk/Lk';
 import CardOnSound from './components/CardOnSound/CardOnSound'
-import {getUser} from './redux/actions/userAC'
 import TestGame from './components/TestGame/TestGame';
 import SoundGame from './components/SoundGame/SoundGame';
+import Translate from './components/Translate/Translate';
 
+import {getUser} from './redux/actions/userAC'
 
 function App() {
   const dispatch = useDispatch()
@@ -44,6 +45,7 @@ function App() {
           <Route path='/sound/' element={<CardOnSound />} />  
           <Route path='/sound/:id' element={<SoundGame />} />  
           <Route path='/lk' element={<Lk />} />
+          <Route path='/translate' element={<Translate />} />
         </Routes>
     </div>
   );
