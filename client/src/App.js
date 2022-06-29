@@ -22,7 +22,7 @@ import {getUser} from './redux/actions/userAC'
 
 function App() {
   const dispatch = useDispatch()
-  const user = useSelector((state)=>state.user)
+  // const user = useSelector((state)=>state.user)
 
 
   useEffect(() => {

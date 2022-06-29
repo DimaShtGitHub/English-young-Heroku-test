@@ -178,4 +178,4 @@ if (statusStat === 0 && count !== 0 && count === allword.length && user.name) {
     
   )
 }
-
+}
