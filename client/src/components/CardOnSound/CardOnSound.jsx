@@ -10,12 +10,13 @@ import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 
 export default function Cards() {
+
   const navigate = useNavigate();
   const [arrCard, setArrCard] = useState();
 
 
   useEffect(() => {
-    axios.get(`/topic/card`)
+    axios.get('/topic/card')
       .then((data) => setArrCard(data.data))
   }, [])
 
@@ -43,7 +44,6 @@ export default function Cards() {
   </div>
 ):(<div className="spinner-grow text-danger" role="status">
 <span className="visually-hidden">Загрузка...</span>
-</div>)}
-      </div>
+</div>)}</div> 
   )
 }
