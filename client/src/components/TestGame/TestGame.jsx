@@ -24,7 +24,15 @@ export default function TestGame() {
    const [ansew, setAnsew] = useState(0)
    const [statusStat, setStatusStat] = useState(0)
    const [arRandom, setArRandom] = useState([])
- 
+
+
+   const talk = (str) => {
+    if (sound) {
+    const synth = window.speechSynthesis;
+    const utterThis = new SpeechSynthesisUtterance(str);
+     synth.speak(utterThis);
+    }
+}
 
   useEffect(() => {
     if(id === 'random'){
@@ -95,13 +103,6 @@ setTimeout(()=> {
 }, 700)
 }
 
-  const talk = (str) => {
-    if (sound) {
-    const synth = window.speechSynthesis;
-    const utterThis = new SpeechSynthesisUtterance(str);
-     synth.speak(utterThis);
-    }
-}
 
 if (count !== 0 && count === allword.length && user.name && statusStat === 0) {
   setStatusStat(1)
