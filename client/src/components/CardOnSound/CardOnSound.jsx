@@ -22,7 +22,7 @@ export default function Cards() {
 
   return (
     <div className={styles.Home}>
-{arrCard.length > 0 ? (
+{arrCard?.length > 0 ? (
   <div>
   <Container className={styles.Container}>
     {arrCard?.map(el => <OneCard topic={el} key={el.id} />)}
