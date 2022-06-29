@@ -112,6 +112,7 @@ setARandom(arrRandom)
        setValue(false)
   }
 }
+}
 
 if (statusStat === 0 && count !== 0 && count === allword.length && user.name) {
   setStatusStat(1)
@@ -177,5 +178,4 @@ if (statusStat === 0 && count !== 0 && count === allword.length && user.name) {
         </>
     
   )
-}
 }

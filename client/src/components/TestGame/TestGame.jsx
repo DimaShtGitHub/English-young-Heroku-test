@@ -102,7 +102,7 @@ setTimeout(()=> {
   setAnsew(0)
 }, 700)
 }
-
+}
 
 if (count !== 0 && count === allword.length && user.name && statusStat === 0) {
   setStatusStat(1)
@@ -122,7 +122,7 @@ return (
               <Button 
                 key={index}
                 value={el} 
-                onClick={(e)=>click(e)}>{el}
+                onClick={click}>{el}
               </Button>
             )}
           </ButtonGroup>
@@ -166,4 +166,4 @@ return (
 )
 }
 
-}
+
