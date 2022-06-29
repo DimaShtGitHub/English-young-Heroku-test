@@ -2,7 +2,6 @@ import React from 'react'
 import styles from './CardOnHome.module.css'
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { CardActionArea } from '@mui/material';
 import Container from '@mui/material/Container';
@@ -95,6 +94,24 @@ export default function CardOnHome() {
             </CardContent>
           </CardActionArea>
           <VolumeUpIcon className={styles.Volume} onClick={()=> sound ? talk('По звуку нажми на правильную картинку') : alert('включите звук, кнопочка в меню')}/>
+        </Card>
+
+        <Card  className={styles.Card} >
+      <CardActionArea className={styles.Area} onClick={()=> navigate('/translate', {replace: true})}>
+        <img className={styles.Img}
+          src="/img/PonyHome1.png"
+          alt='translate'
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            Translate
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            Это онлайн переводчик
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+          <VolumeUpIcon className={styles.Volume} onClick={()=> sound ? talk(' Это онлайн переводчик') : alert('включите звук, кнопочка в меню')}/>
         </Card>
 
         <Card  className={styles.Card} >

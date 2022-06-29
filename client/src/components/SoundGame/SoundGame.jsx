@@ -115,7 +115,7 @@ setARandom(arrRandom)
 
 if (statusStat === 0 && count !== 0 && count === allword.length && user.name) {
   setStatusStat(1)
-  axios.post('/statistic', {stat}, {withCredentials: true})
+  axios.post(`/statistic`, {stat}, {withCredentials: true})
 }
 
 
@@ -129,7 +129,7 @@ if (statusStat === 0 && count !== 0 && count === allword.length && user.name) {
        <h3   onClick= {talk(allword[count].wordEnglish)}>{allword[count].wordEnglish}</h3>
         <VolumeUpIcon className={styles.Volume} onClick={() => sound ? talk(allword[count].wordEnglish) : null}/>
         <div><ButtonGroup >
-        {arrRandom?.map((el, index) => 
+        {aRandom?.map((el, index) => 
           <Button 
           key={index}
           value={el} 
