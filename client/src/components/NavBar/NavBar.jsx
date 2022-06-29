@@ -27,6 +27,7 @@ import logo_img from '../../assets/headerIcons/youngenlish.png'
 import reg_img from '../../assets/headerIcons/patient.png'
 import lk_img from '../../assets/headerIcons/lk.png'
 import sound_img from '../../assets/headerIcons/song.png'
+import person_img from '../../assets/headerIcons/free-icon-user-7182164.png'
 
 
 
@@ -121,7 +122,7 @@ export default function ButtonAppBar() {
               </div>
             </Link>
           </Typography>
-          <Button onClick={regHandler} color="inherit">{user.name ? user.name : <div> <img className={style.iconsHeder} src={reg_img} alt="reg"/> <p className={style.Menu}>Регистрация</p></div>}</Button>
+          <Button onClick={regHandler} color="inherit">{user.name ? <div> <img className={style.iconsHeder} src={person_img} alt="person"/><p className={style.Menu}>{user.name}</p></div> : <div> <img className={style.iconsHeder} src={reg_img} alt="reg"/> <p className={style.Menu}>Регистрация</p></div>}</Button>
           <Button onClick={LkHandler} color="inherit">{user.name ? <div> <img className={style.iconsHeder} src={lk_img} alt="lk" /> <p className={style.Menu}>Личный кабинет</p></div> : null}</Button>
           <Button onClick={logHandler} color="inherit">{user.name ? <div> <img className={style.iconsHeder} src={logout_img} alt="logout" /><p className={style.Menu}>выйти</p> </div>  : <div> <img className={style.iconsHeder} src={login_img} alt="login" /> <p className={style.Menu}>войти</p></div>}</Button>
         </Toolbar>
