@@ -21,9 +21,9 @@ export default function Cards() {
 
   return (
     <div className={styles.Home}>
-      <Container className={styles.Container}>
+      {arrCard?.length > 0 ? (
+        <Container className={styles.Container}>
         {arrCard?.map(el => <OneCard topic={el} key={el.id} />)}
-
         <Card className={styles.Card} onClick={() => navigate(`/card/random`, { replace: true })}>
           <CardActionArea className={styles.Area}>
             <img className={styles.Img}
@@ -37,6 +37,12 @@ export default function Cards() {
             </CardContent>
           </CardActionArea>
         </Card>
-      </Container> </div>
+      </Container>
+      ):(
+        <div className="spinner-grow text-danger" role="status">
+<span className="visually-hidden">Загрузка...</span>
+</div>
+      )}
+       </div>
   )
 }
