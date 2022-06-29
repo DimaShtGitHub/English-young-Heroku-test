@@ -105,6 +105,7 @@ export default function ButtonAppBar() {
                   <MenuItem onClick={popupState.close}><Link className="menu-link" to="/card">Слово <img className={style.iconsHeder} src={words_img} alt="words" /></Link></MenuItem>
                   <MenuItem onClick={popupState.close}><Link className="menu-link" to="/sound">Звуки <img className={style.iconsHeder} src={sound_img} alt="sound" /></Link></MenuItem>
                   <MenuItem onClick={popupState.close}><Link className="menu-link" to="/dictionary">Словарь <img className={style.iconsHeder} src={dictonary_img} alt="dictonary" /></Link></MenuItem>
+                  <MenuItem onClick={popupState.close}><Link className="menu-link" to="/translate">Переводчик <img className={style.iconsHeder} src={dictonary_img} alt="translate" /></Link></MenuItem>
 
                 </Menu>
               </React.Fragment>
