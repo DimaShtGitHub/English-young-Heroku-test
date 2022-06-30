@@ -28,7 +28,7 @@ import reg_img from '../../assets/headerIcons/patient.png'
 import lk_img from '../../assets/headerIcons/lk.png'
 import sound_img from '../../assets/headerIcons/song.png'
 import person_img from '../../assets/headerIcons/free-icon-user-7182164.png'
-
+import english_img from '../../assets/headerIcons/english.png'
 
 
 export default function ButtonAppBar() {
@@ -105,7 +105,7 @@ export default function ButtonAppBar() {
                   <MenuItem onClick={popupState.close}><Link className="menu-link" to="/words">Буква <img className={style.iconsHeder} src={a_img} alt="letter" /></Link></MenuItem>
                   <MenuItem onClick={popupState.close}><Link className="menu-link" to="/card">Слово <img className={style.iconsHeder} src={words_img} alt="words" /></Link></MenuItem>
                   <MenuItem onClick={popupState.close}><Link className="menu-link" to="/sound">Звуки <img className={style.iconsHeder} src={sound_img} alt="sound" /></Link></MenuItem>
-                  <MenuItem onClick={popupState.close}><Link className="menu-link" to="/dictionary">Словарь <img className={style.iconsHeder} src={dictonary_img} alt="dictonary" /></Link></MenuItem>
+                  <MenuItem onClick={popupState.close}><Link className="menu-link" to="/dictionary">Словарь <img className={style.iconsHeder} src={english_img} alt="dictonary" /></Link></MenuItem>
                   <MenuItem onClick={popupState.close}><Link className="menu-link" to="/translate">Переводчик <img className={style.iconsHeder} src={dictonary_img} alt="translate" /></Link></MenuItem>
 
                 </Menu>
