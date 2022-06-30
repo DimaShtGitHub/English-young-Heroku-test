@@ -64,10 +64,10 @@ setAnswer(response.data.data.translations[0].translatedText)
 }
 
 const sound = useSelector((state) => state.sound)
-const talk = (st) => {
+const talk = () => {
   if (sound) {
     var synth = window.speechSynthesis;
-    var utterThis = new SpeechSynthesisUtterance(st);
+    var utterThis = new SpeechSynthesisUtterance(answer);
      synth.speak(utterThis);
   }
 }
@@ -109,7 +109,7 @@ const talk = (st) => {
     <>
 {answer?.length > 0 ? (
   <Typography variant="h3" gutterBottom component="div">
-    <VolumeUpIcon onClick={()=> talk({answer})}/>
+    <VolumeUpIcon onClick={talk}/>
   {answer}
      </Typography>
 ):(
