@@ -43,6 +43,24 @@ export default function CardOnHome() {
         </Card>
 
         <Card  className={styles.Card} >
+          <CardActionArea className={styles.Area} onClick={()=> navigate('/sound', {replace: true})}>
+            <img className={styles.Img}
+              src="/img/SoundGame.png"
+              alt='SoundGame.png'
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+              SoundGame
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                По звуку нажми на правильную картинку
+              </Typography>
+            </CardContent>
+          </CardActionArea>
+          <VolumeUpIcon className={styles.Volume} onClick={()=> sound ? talk('По звуку нажми на правильную картинку') : alert('включите звук, кнопочка в меню')}/>
+        </Card>
+
+        <Card  className={styles.Card} >
           <CardActionArea className={styles.Area} onClick={()=> navigate('/card', {replace: true})}>
             <img className={styles.Img}
                 src="/img/Card.png"
@@ -76,24 +94,6 @@ export default function CardOnHome() {
             </CardContent>
           </CardActionArea>
           <VolumeUpIcon className={styles.Volume} onClick={()=> sound ? talk('В этой игре нужно будет подставлять буквы в слова с иллюстрациями') : null}/>
-        </Card>
-
-        <Card  className={styles.Card} >
-          <CardActionArea className={styles.Area} onClick={()=> navigate('/sound', {replace: true})}>
-            <img className={styles.Img}
-              src="/img/SoundGame.png"
-              alt='SoundGame.png'
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-              SoundGame
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                По звуку нажми на правильную картинку
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-          <VolumeUpIcon className={styles.Volume} onClick={()=> sound ? talk('По звуку нажми на правильную картинку') : alert('включите звук, кнопочка в меню')}/>
         </Card>
 
         <Card  className={styles.Card} >
