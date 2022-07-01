@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import styles from './Coloring.module.css'
-
+import {useSelector} from 'react-redux';
 // const poly = document?.querySelector('polygon')
+import Button from '@mui/material/Button';
 
 export default function Coloring() {
 
@@ -77,6 +78,17 @@ export default function Coloring() {
     setTrueArr()
     setFalseArr()
   }
+
+  const sound = useSelector((state) => state.sound)
+  const talk = (str) => {
+    if (sound) {
+      setTimeout(() => {
+       const synth = window.speechSynthesis;
+    const utterThis = new SpeechSynthesisUtterance(str);
+     synth.speak(utterThis);   
+      }, 200)
+    }
+}
 
   return (
     <div className={styles.Home}>
@@ -565,7 +577,7 @@ m342 -110 c215 -24 421 -94 511 -175 142 -128 170 -362 73 -593 -81 -194 -232
 
 
 {trueArr?.length || falseArr?.length ? (<div className={styles.Fonts}>
-{trueArr.length === 0 ? (<h1>Ни одного верного ответа</h1>) : (falseArr.length === 0 ? (<h1>Все верно</h1>) : (<><div>Верные ответы:{trueArr.map(el => <span> {el},</span>)}</div> <div>Неверные ответы:{falseArr.map(el => <span> {el},</span>)}</div></>)) 
+{trueArr.length === 0 ? (<h1>Ни одного верного ответа</h1>) : (falseArr.length === 0 ? (<h1>Все верно</h1>) : (<><div>Верные ответы:{trueArr.map((el, i) => <Button sx={{backgroundColor: `${el}`}} onClick={() => talk(el)} value={el} key={i}>{el}</Button>)}</div> <div>Неверные ответы:{falseArr.map((el, i) => <Button sx={{backgroundColor: `${el}`}} onClick={() => talk(el)} value={el} key={i}>{el}</Button>)}</div></>)) 
 }<div onClick={restartHandler} className={styles.Restart}>начать заново</div></div>) :
 (<img onClick={statHandler} className={styles.End} src='/img/EndGame.png' alt='TheEnd' />)
 }
