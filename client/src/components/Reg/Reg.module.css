@@ -11,3 +11,7 @@
 .cont {
   padding-top: 10%;
 }
+
+.errMessage {
+  color: rgb(183, 53, 30)
+}

@@ -14,26 +14,51 @@ export default function Reg() {
   
   const [inputs, setInputs] = useState({})
   const [err, setErr] = useState({})
+  const [errInput, setErrInput] = useState([])
+
+
+
 
   const regHandler = (event) => {
     event.preventDefault();
-    axios.post('/auth/reg', inputs, {
-      withCredentials: true,
-    })
-    .then((res) => {
-        setErr((prev) => ({}))
-        dispatch({type: 'SET_USER', payload: res.data})
-        navigate("/", { replace: true });
-     })
-     .catch((res) => {
-      if (res.response.status === 400) {
-        setErr((prev) => (res.response.data))
-      } else if (res.response.status === 500) {
-        setErr((prev) => (res.response.data))
-      } else {
-        setErr((prev) => ({message: 'сервер недоступен, попробуйте позже'}))
-      }
-    })
+
+    
+    const loginPattern = /[A-Z0-9a-z]\w+/;
+    const emailPattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+    
+
+  if (inputs.name?.length > 0 && inputs.email?.length > 0 && inputs.password?.length > 0) {
+    if (!loginPattern.test(inputs.name)) {
+      setErr({})
+      setErrInput('поле "логин" заполнено неверно')
+    } else if (!emailPattern.test(inputs.email)) {
+      setErr({})
+      setErrInput('поле "Email" заполнено неверно')
+    } else {
+      setErrInput([])
+      axios.post('http://localhost:3001/auth/reg', inputs, {
+        withCredentials: true,
+      })
+      .then((res) => {
+          setErr((prev) => ({}))
+          dispatch({type: 'SET_USER', payload: res.data})
+          navigate("/", { replace: true });
+       })
+       .catch((res) => {
+        if (res.response.status === 400) {
+          setErr((prev) => (res.response.data))
+        } else if (res.response.status === 500) {
+          setErr((prev) => (res.response.data))
+        } else {
+          setErr((prev) => ({message: 'сервер недоступен, попробуйте позже'}))
+        }
+       })
+    }
+  } else {
+    setErr({})
+    setErrInput('пожалуйста, заполните все поля')
+  }
+
   }
 
   const inputsHandler = (e) => {
@@ -44,16 +69,6 @@ export default function Reg() {
 
   return (
     <>
-    {/* <form onSubmit={regHandler} className="reg_log_form">
-      <div><label className="reg-lable">Логин:</label></div>
-      <div><input onChange={inputsHandler} name="name" className="form-control" type="text" pattern="[A-Za-z]\w+" minLength="1" placeholder="Введите логин" required></input></div>
-      <div><label className="reg-lable">Email:</label></div>
-      <div><input onChange={inputsHandler} name="email" className="form-control" type="text" pattern="^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\.[A-Za-z]{2,}$" placeholder="Введите Email" required></input></div>
-      <div><label className="reg-lable">Пароль:</label></div>
-      <div><input onChange={inputsHandler} name="password" className="password form-control" type="password" minLength="1" placeholder="Введите пароль" required></input></div>
-      {err.message ? <div className="err-message">{err.message}</div> : null}
-      <div><button  className="btn btn-primary btn-reg">Зарегистрироваться</button></div>
-    </form> */}
 <div className={styles.Home}>
     <Box onSubmit={regHandler} 
       component="form"
@@ -65,15 +80,16 @@ export default function Reg() {
     >
       <div className={styles.cont}>
       <div>
-        <TextField onChange={inputsHandler} name="name" label="Введите логин:" id="outlined-size-normal" inputProps={{pattern: "[A-Za-z]\w+"}}  placeholder="Заполните поле на английском языке" />
+        <TextField onChange={inputsHandler} name="name" type="text" label="Введите логин:" id="outlined-size-normal" pattern="[A-Z0-9a-z]\w+" minLength="2" placeholder="Заполните поле на английском языке" />
      </div>
      <div>
-        <TextField onChange={inputsHandler} name="email" label="Введите Email:" id="outlined-size-normal" inputProps={{pattern: "[A-Za-z0-9_-+=!$%|]"}}  placeholder="Пример: name@mail.ru" />
+        <TextField onChange={inputsHandler} name="email" type="email" label="Введите Email:" id="outlined-size-normal" pattern="^[A-Z0-9a-z._%+-]+@[A-Z0-9a-z.-]+\.[A-Za-z]{2,}$" placeholder="Пример: name@mail.ru" />
       </div> 
       <div>
-        <TextField onChange={inputsHandler} name="password" type="password" label="Введите пароль:" id="outlined-size-normal" placeholder="Длина должна быть больше двух символов"/>
+        <TextField onChange={inputsHandler} name="password" type="password" label="Введите пароль:" id="outlined-size-normal" minLength="2" placeholder="Длина должна быть больше двух символов"/>
       </div>
-      {err.message ? <div className="err-message">{err.message}</div> : null}
+      {errInput ? <div className={styles.errMessage}>{errInput}</div> : null}
+      {err.message ? <div className={styles.errMessage}>{err.message}</div> : null}
       <Button variant="text" type="submit">Зарегистрироваться</Button>
     </div>
     </Box>
@@ -81,3 +97,5 @@ export default function Reg() {
 </>
   )
 }
+
+
