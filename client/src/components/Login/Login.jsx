@@ -22,7 +22,7 @@ export default function Reg() {
 
     if (inputs.email?.length && inputs.password?.length) {
       setErrInput([])
-      axios.post('http://localhost:3001/auth/login', inputs, {
+      axios.post(`/auth/login`, inputs, {
         withCredentials: true,
       })
       .then((res) => {
