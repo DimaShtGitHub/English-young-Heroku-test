@@ -34,6 +34,9 @@ export default function Reg() {
     } else if (!emailPattern.test(inputs.email)) {
       setErr({})
       setErrInput('поле "Email" заполнено неверно')
+    } else if (inputs.password?.length < 2) {
+      setErr({})
+      setErrInput('поле "пароль" заполнено неверно')
     } else {
       setErrInput([])
       axios.post(`/auth/reg`, inputs, {
